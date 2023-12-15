@@ -7,7 +7,25 @@ export function createFighterPreview(fighter, position) {
         className: `fighter-preview___root ${positionClassName}`
     });
 
-    // todo: show fighter info (image, name, health, etc.)
+    // Crear la imagen del luchador
+    const imgElement = createFighterImage(fighter);
+    fighterElement.append(imgElement);
+
+    // Crear el nombre del luchador
+    const nameElement = createElement({
+        tagName: 'span',
+        className: 'fighter-preview___name'
+    });
+    nameElement.innerText = fighter.name;
+    fighterElement.append(nameElement);
+
+    // Crear la salud del luchador
+    const healthElement = createElement({
+        tagName: 'span',
+        className: 'fighter-preview___health'
+    });
+    healthElement.innerText = `Health: ${fighter.health}`;
+    fighterElement.append(healthElement);
 
     return fighterElement;
 }

@@ -66,7 +66,12 @@ export default function renderArena(selectedFighters) {
     root.innerHTML = '';
     root.append(arena);
 
-    // todo:
-    // - start the fight
-    // - when fight is finished show winner
+    fight(selectedFighters[0], selectedFighters[1]).then((winner) => {
+        // Cuando termine la pelea, mostrar al ganador
+        showWinner(winner);
+    });
+
+    function showWinner(winner) {
+        alert(`El ganador es ${winner.name}`);
+    }
 }
